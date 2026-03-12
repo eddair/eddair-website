@@ -64,3 +64,4 @@ src/
 ├── lib/supabase.ts
 └── styles/global.css
 ```
+
