@@ -75,3 +75,17 @@ html {
   h2 { font-size: 28px; }
   h3 { font-size: 22px; }
 }
+
+/* Footer: force light devialet-style backgrounds — override any conflicting dark styles */
+footer.footer {
+  background-color: #f0f0f0 !important;
+}
+footer .footer__contact-bar {
+  background-color: #ffffff !important;
+}
+footer .footer__main {
+  background-color: #f0f0f0 !important;
+}
+footer .footer__bottom {
+  background-color: #0a0a0a !important;
+}
