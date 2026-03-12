@@ -1,9 +1,13 @@
 ---
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const stories = [
-  { name: 'Westpark', location: 'Ingolstadt', href: '/referenzen/westpark', image: '/images/referenzen/westpark.jpg' },
-  { name: 'Projekt 2', location: 'Stadt', href: '/referenzen/projekt-2', image: '' },
-  { name: 'Projekt 3', location: 'Stadt', href: '/referenzen/projekt-3', image: '' },
-  { name: 'Projekt 4', location: 'Stadt', href: '/referenzen/projekt-4', image: '' },
+  { name: 'Westpark', location: 'Ingolstadt', href: getLocalizedPath('/referenzen/westpark', lang), image: '/images/referenzen/westpark.jpg' },
+  { name: 'Projekt 2', location: 'Stadt', href: getLocalizedPath('/referenzen/projekt-2', lang), image: '' },
+  { name: 'Projekt 3', location: 'Stadt', href: getLocalizedPath('/referenzen/projekt-3', lang), image: '' },
+  { name: 'Projekt 4', location: 'Stadt', href: getLocalizedPath('/referenzen/projekt-4', lang), image: '' },
 ];
 ---
 
@@ -11,13 +15,13 @@ const stories = [
   <div class="container-eddair">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12">
       <h2 class="text-3xl md:text-4xl font-semibold text-[var(--text-primary)]">
-        Unsere Referenzen
+        {t.stories.title}
       </h2>
       <a
-        href="/referenzen"
+        href={getLocalizedPath('/referenzen', lang)}
         class="text-sm uppercase tracking-wider text-[var(--text-primary)] hover:underline w-fit"
       >
-        ALLE ANSEHEN
+        {t.stories.cta}
       </a>
     </div>
 
@@ -28,7 +32,6 @@ const stories = [
           class="flex-shrink-0 w-[350px] snap-start group"
         >
           <div class="relative aspect-[3/4] overflow-hidden rounded-lg">
-            <!-- Platzhalter oder Bild -->
             <div class="absolute inset-0 bg-[#e0e0e0] flex items-center justify-center">
               <span class="text-[var(--text-gray)] text-sm">{story.name}</span>
             </div>

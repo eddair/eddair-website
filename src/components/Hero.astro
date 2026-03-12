@@ -1,34 +1,33 @@
 ---
-// Platzhalter: Dunkler Gradient statt Video
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="relative h-screen w-full overflow-hidden">
-  <!-- Gradient Background (Platzhalter für Video) -->
   <div
     class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#222222] to-[#0a0a0a]"
     aria-hidden="true"
   />
 
-  <!-- Content -->
   <div class="relative z-10 h-full flex flex-col justify-end container-eddair pb-20">
     <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
       <div class="text-white">
-        <p class="text-sm uppercase tracking-[4px] mb-2 opacity-90">Eine neue Ära beginnt.</p>
+        <p class="text-sm uppercase tracking-[4px] mb-2 opacity-90">{t.hero.subtitle}</p>
         <h1 class="text-4xl md:text-5xl lg:text-[44px] font-bold mb-4 tracking-tight">
-          EDDAIR.<br />Digitale Präsenz.
+          {t.hero.title1}<br />{t.hero.title2}
         </h1>
       </div>
       <a
-        href="/products"
+        href={getLocalizedPath('/products', lang)}
         class="inline-flex items-center justify-center w-fit px-8 py-4 bg-[var(--btn-bg)] text-[var(--btn-text)] text-sm uppercase tracking-[2px] hover:bg-[#333] transition-colors"
         style="border-radius: var(--btn-border-radius);"
       >
-        PRODUKTE ENTDECKEN
+        {t.hero.cta}
       </a>
     </div>
   </div>
 
-  <!-- Scroll Arrow -->
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce-slow">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <path d="M12 5v14M19 12l-7 7-7-7"/>

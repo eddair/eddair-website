@@ -1,5 +1,7 @@
 ---
-// Nachhaltigkeit / Werte - Split-Layout
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="py-20 md:py-32 bg-white">
@@ -7,24 +9,23 @@
     <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
       <div>
         <h2 class="text-3xl md:text-4xl font-semibold text-[var(--text-primary)] mb-6">
-          Digitale Werbung. Nachhaltig.
+          {t.sustainability.title}
         </h2>
         <p class="text-base text-[var(--text-gray)] leading-relaxed mb-6">
-          Kein Papier. Kein Plakatwechsel. Keine Verschwendung. EDDAIR Display-Lösungen ersetzen traditionelle Printwerbung durch digitale Inhalte — steuerbar, messbar, ressourcenschonend.
+          {t.sustainability.text1}
         </p>
         <p class="text-base text-[var(--text-gray)] leading-relaxed mb-8">
-          Wirkung braucht Verantwortung. Und wir stehen erst am Anfang.
+          {t.sustainability.text2}
         </p>
         <a
-          href="/ueber-uns"
+          href={getLocalizedPath('/ueber-uns', lang)}
           class="inline-flex items-center justify-center w-fit px-8 py-4 border-2 border-[var(--btn-bg)] text-[var(--text-primary)] text-sm uppercase tracking-[2px] hover:bg-[var(--btn-bg)] hover:text-[var(--btn-text)] transition-colors"
           style="border-radius: var(--btn-border-radius);"
         >
-          ERFAHREN SIE MEHR
+          {t.sustainability.cta}
         </a>
       </div>
       <div class="flex justify-center">
-        <!-- Platzhalter: Badge/Siegel -->
         <div class="w-48 h-48 rounded-full bg-[#e0e0e0] flex items-center justify-center">
           <span class="text-[var(--text-gray)] text-xs text-center px-4">Coming Soon</span>
         </div>

@@ -1,11 +1,17 @@
 ---
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const navLinks = [
-  { href: '/eddy-wall-box', label: 'eddy-wall-box' },
-  { href: '/eddy-mobile', label: 'eddy-mobile' },
-  { href: '/eddy-window', label: 'eddy-window' },
-  { href: '/eddy-outdoor', label: 'eddy-outdoor' },
-  { href: '/referenzen', label: 'Referenzen' },
-  { href: '/ueber-uns', label: 'Über uns' },
+  { href: getLocalizedPath('/eddy-wall-box', lang), label: t.nav.products.eddyWallBox },
+  { href: getLocalizedPath('/eddy-mobile', lang), label: t.nav.products.eddyMobile },
+  { href: getLocalizedPath('/eddy-window', lang), label: t.nav.products.eddyWindow },
+  { href: getLocalizedPath('/eddy-outdoor', lang), label: t.nav.products.eddyOutdoor },
+  { href: getLocalizedPath('/referenzen', lang), label: t.nav.references },
+  { href: getLocalizedPath('/ueber-uns', lang), label: t.nav.about },
 ];
 ---
 
@@ -15,7 +21,7 @@ const navLinks = [
   data-scrolled="false"
 >
   <nav class="container-eddair h-full flex items-center justify-between">
-    <a href="/" class="text-lg font-medium uppercase tracking-[8px] text-inherit transition-colors hover:opacity-80">
+    <a href={getLocalizedPath('/', lang)} class="text-lg font-medium uppercase tracking-[8px] text-inherit transition-colors hover:opacity-80">
       EDDAIR
     </a>
 
@@ -33,15 +39,16 @@ const navLinks = [
       ))}
     </ul>
 
-    <!-- Right: Search + Contact -->
+    <!-- Right: Language Flags + Search + Contact -->
     <div class="hidden lg:flex items-center gap-6">
-      <button type="button" aria-label="Suche" class="text-inherit hover:opacity-80 transition-opacity">
+      <LanguageSwitcher slot="desktop" />
+      <button type="button" aria-label={t.nav.search} class="text-inherit hover:opacity-80 transition-opacity">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"/>
           <path d="m21 21-4.35-4.35"/>
         </svg>
       </button>
-      <a href="/kontakt" class="text-inherit hover:opacity-80 transition-opacity" aria-label="Kontakt">
+      <a href={getLocalizedPath('/kontakt', lang)} class="text-inherit hover:opacity-80 transition-opacity" aria-label={t.nav.contact}>
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
           <polyline points="22,6 12,13 2,6"/>
@@ -49,23 +56,26 @@ const navLinks = [
       </a>
     </div>
 
-    <!-- Mobile Hamburger -->
-    <button
-      id="mobile-menu-btn"
-      type="button"
-      aria-label="Menü öffnen"
-      class="lg:hidden p-2 text-inherit"
-    >
-      <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="3" y1="6" x2="21" y2="6"/>
-        <line x1="3" y1="12" x2="21" y2="12"/>
-        <line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-      <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="18" y1="6" x2="6" y2="18"/>
-        <line x1="6" y1="6" x2="18" y2="18"/>
-      </svg>
-    </button>
+    <!-- Mobile: Flags + Hamburger -->
+    <div class="lg:hidden flex items-center gap-4">
+      <LanguageSwitcher slot="mobile" />
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        aria-label={t.nav.menuOpen}
+        class="p-2 text-inherit"
+      >
+        <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
   </nav>
 
   <!-- Mobile Menu -->
@@ -79,8 +89,8 @@ const navLinks = [
         </li>
       ))}
       <li class="pt-4 border-t">
-        <a href="/kontakt" class="block text-sm uppercase tracking-wider py-2 hover:opacity-80">
-          Kontakt
+        <a href={getLocalizedPath('/kontakt', lang)} class="block text-sm uppercase tracking-wider py-2 hover:opacity-80">
+          {t.nav.contact}
         </a>
       </li>
     </ul>
@@ -95,7 +105,7 @@ const navLinks = [
   const closeIcon = document.getElementById('close-icon');
 
   function updateNavStyle() {
-    const isHome = window.location.pathname === '/' || window.location.pathname === '';
+    const isHome = window.location.pathname === '/' || window.location.pathname === '/en/' || window.location.pathname === '/en';
     const scrolled = window.scrollY > 50;
     const useLight = !isHome || scrolled;
     header?.setAttribute('data-scrolled', String(useLight));
@@ -117,7 +127,6 @@ const navLinks = [
 
   window.addEventListener('scroll', updateNavStyle);
   updateNavStyle();
-
   mobileBtn?.addEventListener('click', toggleMobileMenu);
 
   document.querySelectorAll('#mobile-menu a').forEach((link) => {

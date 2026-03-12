@@ -1,9 +1,13 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const items = [
-  { label: 'Plug & Play Installation', icon: 'plug' },
-  { label: 'Zentrale Steuerung', icon: 'dashboard' },
-  { label: 'Made in Germany', icon: 'flag' },
-  { label: 'Persönlicher Support', icon: 'headset' },
+  { label: t.trustBar.plugPlay, icon: 'plug' },
+  { label: t.trustBar.centralControl, icon: 'dashboard' },
+  { label: t.trustBar.madeInGermany, icon: 'flag' },
+  { label: t.trustBar.personalSupport, icon: 'headset' },
 ];
 ---
 

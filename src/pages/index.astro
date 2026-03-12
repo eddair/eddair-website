@@ -14,9 +14,12 @@ import B2BBanner from '../components/B2BBanner.astro';
 import TrustBar from '../components/TrustBar.astro';
 import Newsletter from '../components/Newsletter.astro';
 import Footer from '../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Layout title="EDDAIR – Digitale Präsenz" description="EDDAIR Display-Lösungen: eddy-wall-box, eddy-mobile, eddy-window, eddy-outdoor. Digitale Werbeflächen für Architektur und Kommunikation.">
+<Layout title={t.meta.title} description={t.meta.description}>
   <Navigation />
   <main>
     <Hero />

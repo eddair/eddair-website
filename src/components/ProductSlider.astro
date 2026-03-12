@@ -1,10 +1,14 @@
 ---
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const products = [
-  { slug: 'eddy-wall-box', name: 'eddy-wall-box', href: '/eddy-wall-box' },
-  { slug: 'eddy-mobile-doublesided', name: 'eddy-mobile doublesided', href: '/eddy-mobile-doublesided' },
-  { slug: 'eddy-mobile-onesided', name: 'eddy-mobile onesided', href: '/eddy-mobile-onesided' },
-  { slug: 'eddy-window', name: 'eddy-window', href: '/eddy-window' },
-  { slug: 'eddy-outdoor', name: 'eddy-outdoor', href: '/eddy-outdoor' },
+  { slug: 'eddy-wall-box', name: 'eddy-wall-box', href: getLocalizedPath('/eddy-wall-box', lang) },
+  { slug: 'eddy-mobile-doublesided', name: 'eddy-mobile doublesided', href: getLocalizedPath('/eddy-mobile-doublesided', lang) },
+  { slug: 'eddy-mobile-onesided', name: 'eddy-mobile onesided', href: getLocalizedPath('/eddy-mobile-onesided', lang) },
+  { slug: 'eddy-window', name: 'eddy-window', href: getLocalizedPath('/eddy-window', lang) },
+  { slug: 'eddy-outdoor', name: 'eddy-outdoor', href: getLocalizedPath('/eddy-outdoor', lang) },
 ];
 ---
 
@@ -16,13 +20,12 @@ const products = [
         class="flex-shrink-0 w-[280px] md:w-[300px] snap-start group"
       >
         <div class="bg-white p-6 flex flex-col h-[400px] border border-[#e0e0e0] hover:border-[var(--text-gray)] transition-colors">
-          <!-- Platzhalter: Graue Box mit Produktnamen -->
           <div class="flex-1 flex items-center justify-center bg-[#e0e0e0] text-[var(--text-gray)] text-center px-4">
             <span class="text-sm font-medium">{product.name}</span>
           </div>
           <p class="mt-4 text-base text-[var(--text-primary)]">{product.name}</p>
           <span class="mt-auto text-sm uppercase tracking-wider text-[var(--text-primary)] group-hover:underline">
-            ENTDECKEN &gt;
+            {t.productSlider.learnMore}
           </span>
         </div>
       </a>

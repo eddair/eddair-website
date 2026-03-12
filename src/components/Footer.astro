@@ -1,24 +1,28 @@
 ---
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const aboutLinks = [
-  { href: '/ueber-uns', label: 'Unsere Geschichte' },
-  { href: '/referenzen', label: 'Referenzen' },
-  { href: '/karriere', label: 'Karriere' },
-  { href: '/presse', label: 'Presse' },
+  { href: getLocalizedPath('/ueber-uns', lang), label: t.footer.ourStory },
+  { href: getLocalizedPath('/referenzen', lang), label: t.footer.references },
+  { href: getLocalizedPath('/karriere', lang), label: t.footer.career },
+  { href: getLocalizedPath('/presse', lang), label: t.footer.press },
 ];
 const productLinks = [
-  { href: '/eddy-wall-box', label: 'eddy-wall-box' },
-  { href: '/eddy-mobile', label: 'eddy-mobile' },
-  { href: '/eddy-window', label: 'eddy-window' },
-  { href: '/eddy-outdoor', label: 'eddy-outdoor' },
+  { href: getLocalizedPath('/eddy-wall-box', lang), label: 'eddy-wall-box' },
+  { href: getLocalizedPath('/eddy-mobile', lang), label: 'eddy-mobile' },
+  { href: getLocalizedPath('/eddy-window', lang), label: 'eddy-window' },
+  { href: getLocalizedPath('/eddy-outdoor', lang), label: 'eddy-outdoor' },
 ];
 const refLinks = [
-  { href: '/referenzen/westpark', label: 'Westpark Ingolstadt' },
-  { href: '/demo', label: 'Demo buchen' },
+  { href: getLocalizedPath('/referenzen/westpark', lang), label: 'Westpark Ingolstadt' },
+  { href: getLocalizedPath('/demo', lang), label: t.footer.bookDemo },
 ];
 const supportLinks = [
-  { href: '/kontakt', label: 'Kontakt' },
-  { href: '/hilfe', label: 'Hilfezentrum' },
-  { href: '/anleitungen', label: 'Anleitungen' },
+  { href: getLocalizedPath('/kontakt', lang), label: t.footer.contact },
+  { href: getLocalizedPath('/hilfe', lang), label: t.footer.helpCenter },
+  { href: getLocalizedPath('/anleitungen', lang), label: t.footer.guides },
 ];
 ---
 
@@ -26,7 +30,7 @@ const supportLinks = [
   <div class="container-eddair">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
       <div>
-        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">Über EDDAIR</h3>
+        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">{t.footer.about}</h3>
         <ul class="space-y-3">
           {aboutLinks.map((link) => (
             <li>
@@ -38,7 +42,7 @@ const supportLinks = [
         </ul>
       </div>
       <div>
-        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">Produkte</h3>
+        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">{t.footer.products}</h3>
         <ul class="space-y-3">
           {productLinks.map((link) => (
             <li>
@@ -50,7 +54,7 @@ const supportLinks = [
         </ul>
       </div>
       <div>
-        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">Referenzen</h3>
+        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">{t.footer.cases}</h3>
         <ul class="space-y-3">
           {refLinks.map((link) => (
             <li>
@@ -62,7 +66,7 @@ const supportLinks = [
         </ul>
       </div>
       <div>
-        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">Support</h3>
+        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">{t.footer.support}</h3>
         <ul class="space-y-3">
           {supportLinks.map((link) => (
             <li>
@@ -78,8 +82,8 @@ const supportLinks = [
     <div class="pt-8 border-t border-white/20 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
       <p class="text-sm text-white/70">Copyright 2026 EDDAIR</p>
       <div class="flex gap-8">
-        <a href="/impressum" class="text-sm text-white/70 hover:text-white transition-colors">Impressum</a>
-        <a href="/datenschutz" class="text-sm text-white/70 hover:text-white transition-colors">Datenschutz</a>
+        <a href={getLocalizedPath('/impressum', lang)} class="text-sm text-white/70 hover:text-white transition-colors">{t.footer.imprint}</a>
+        <a href={getLocalizedPath('/datenschutz', lang)} class="text-sm text-white/70 hover:text-white transition-colors">{t.footer.privacy}</a>
       </div>
       <div class="flex gap-6">
         <a href="https://instagram.com/eddair" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-white/70 hover:text-white transition-colors">

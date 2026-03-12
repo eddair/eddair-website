@@ -1,24 +1,25 @@
 ---
-// Newsletter CTA-Banner - Dunkles Premium-Bild mit weisser Karte
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="py-20 md:py-32 relative overflow-hidden">
-  <!-- Hintergrund: Dunkler Gradient (Platzhalter für Space/Architektur) -->
   <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#0a0a0a]" />
 
   <div class="relative z-10 container-eddair">
     <div class="max-w-2xl mx-auto bg-white p-12 md:p-16 rounded-lg shadow-xl">
       <h2 class="text-2xl md:text-3xl font-semibold text-[var(--text-primary)] mb-4">
-        BLEIBEN SIE INFORMIERT
+        {t.newsletter.title}
       </h2>
       <p class="text-[var(--text-gray)] text-base mb-8">
-        Neuigkeiten, Updates und Referenzen: Hier erfahren Sie es zuerst.
+        {t.newsletter.text}
       </p>
       <form id="newsletter-form" class="flex flex-col sm:flex-row gap-4">
         <input
           type="email"
           name="email"
-          placeholder="E-Mail*"
+          placeholder={t.newsletter.placeholder}
           required
           class="flex-1 px-4 py-3 border border-[#e0e0e0] text-[var(--text-primary)] placeholder-[var(--text-gray)] focus:border-[var(--text-primary)] focus:outline-none"
         />
@@ -27,11 +28,11 @@
           class="px-8 py-4 bg-[var(--btn-bg)] text-[var(--btn-text)] text-sm uppercase tracking-[2px] hover:bg-[#333] transition-colors whitespace-nowrap"
           style="border-radius: var(--btn-border-radius);"
         >
-          ABONNIEREN
+          {t.newsletter.cta}
         </button>
       </form>
       <p class="mt-6 text-xs text-[var(--text-gray)]">
-        EDDAIR wird Ihre Daten nur für die angegebenen Zwecke verwenden.
+        {t.newsletter.privacy}
       </p>
     </div>
   </div>
@@ -40,7 +41,6 @@
 <script>
   document.getElementById('newsletter-form')?.addEventListener('submit', (e) => {
     e.preventDefault();
-    // Platzhalter: Newsletter-Anmeldung noch nicht implementiert
     alert('Newsletter-Anmeldung wird bald verfügbar sein.');
   });
 </script>

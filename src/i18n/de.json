@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "products": {
+      "eddyWallBox": "eddy-wall-box",
+      "eddyMobile": "eddy-mobile",
+      "eddyWindow": "eddy-window",
+      "eddyOutdoor": "eddy-outdoor"
+    },
+    "references": "Referenzen",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "search": "Suche",
+    "menuOpen": "Menü öffnen"
+  },
+  "hero": {
+    "subtitle": "Eine neue Ära beginnt.",
+    "title1": "EDDAIR.",
+    "title2": "Digitale Präsenz.",
+    "cta": "PRODUKTE ENTDECKEN"
+  },
+  "productsIntro": {
+    "title": "Entdecken Sie unsere Display-Lösungen."
+  },
+  "mission": {
+    "title": "Vision & Mission",
+    "text": "Wir transformieren Gebäudefassaden in digitale Kommunikationsflächen — intelligent, nachhaltig, wirkungsvoll."
+  },
+  "appSection": {
+    "title": "Immer unter Kontrolle.",
+    "text": "Verwalten Sie alle Ihre EDDAIR Displays zentral über unsere App. Inhalte hochladen, Zeitpläne festlegen, Performance messen — alles in Echtzeit.",
+    "cta": "MEHR ERFAHREN"
+  },
+  "accessories": {
+    "title": "Finden Sie die perfekte Konfiguration.",
+    "text": "Von Montagesets bis Schutzgehäuse — entdecken Sie das passende Zubehör für Ihre EDDAIR Display-Lösung.",
+    "cta": "ZUBEHÖR ENTDECKEN"
+  },
+  "experience": {
+    "title": "Erleben Sie eddy live.",
+    "text": "Besuchen Sie einen unserer Showrooms oder buchen Sie eine persönliche Demo.",
+    "ctaShowroom": "SHOWROOM FINDEN",
+    "ctaDemo": "DEMO BUCHEN"
+  },
+  "sustainability": {
+    "title": "Digitale Werbung. Nachhaltig.",
+    "text1": "Kein Papier. Kein Plakatwechsel. Keine Verschwendung. EDDAIR Display-Lösungen ersetzen traditionelle Printwerbung durch digitale Inhalte — steuerbar, messbar, ressourcenschonend.",
+    "text2": "Wirkung braucht Verantwortung. Und wir stehen erst am Anfang.",
+    "cta": "ERFAHREN SIE MEHR"
+  },
+  "b2b": {
+    "title": "EDDAIR für Ihr Objekt?",
+    "cta": "JETZT ANFRAGEN"
+  },
+  "trustBar": {
+    "plugPlay": "Plug & Play Installation",
+    "centralControl": "Zentrale Steuerung",
+    "madeInGermany": "Made in Germany",
+    "personalSupport": "Persönlicher Support"
+  },
+  "newsletter": {
+    "title": "BLEIBEN SIE INFORMIERT",
+    "text": "Neuigkeiten, Updates und Referenzen: Hier erfahren Sie es zuerst.",
+    "placeholder": "E-Mail*",
+    "cta": "ABONNIEREN",
+    "privacy": "EDDAIR wird Ihre Daten nur für die angegebenen Zwecke verwenden."
+  },
+  "stories": {
+    "title": "Unsere Referenzen",
+    "cta": "ALLE ANSEHEN"
+  },
+  "productSlider": {
+    "title": "Unsere Produkte",
+    "learnMore": "MEHR ERFAHREN"
+  },
+  "footer": {
+    "about": "Über EDDAIR",
+    "products": "Produkte",
+    "references": "Referenzen",
+    "cases": "Referenzen",
+    "contact": "Kontakt",
+    "support": "Support",
+    "ourStory": "Unsere Geschichte",
+    "career": "Karriere",
+    "press": "Presse",
+    "bookDemo": "Demo buchen",
+    "helpCenter": "Hilfezentrum",
+    "guides": "Anleitungen",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz"
+  },
+  "contactPage": {
+    "title": "Kontakt",
+    "metaDescription": "Kontaktieren Sie EDDAIR – wir melden uns innerhalb von 24 Stunden.",
+    "text": "Haben Sie Fragen zu unseren Display-Lösungen? Schreiben Sie uns – wir melden uns innerhalb von 24 Stunden."
+  },
+  "productsPage": {
+    "title": "Produkte",
+    "metaDescription": "EDDAIR Display-Lösungen: eddy-wall-box, eddy-mobile, eddy-window, eddy-outdoor.",
+    "discover": "ENTDECKEN"
+  },
+  "meta": {
+    "title": "EDDAIR – Digitale Präsenz",
+    "description": "EDDAIR Display-Lösungen: eddy-wall-box, eddy-mobile, eddy-window, eddy-outdoor. Digitale Werbeflächen für Architektur und Kommunikation."
+  }
+}

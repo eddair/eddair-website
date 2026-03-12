@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "products": {
+      "eddyWallBox": "eddy-wall-box",
+      "eddyMobile": "eddy-mobile",
+      "eddyWindow": "eddy-window",
+      "eddyOutdoor": "eddy-outdoor"
+    },
+    "references": "References",
+    "about": "About us",
+    "contact": "Contact",
+    "search": "Search",
+    "menuOpen": "Open menu"
+  },
+  "hero": {
+    "subtitle": "A new era begins.",
+    "title1": "EDDAIR.",
+    "title2": "Digital Presence.",
+    "cta": "DISCOVER PRODUCTS"
+  },
+  "productsIntro": {
+    "title": "Discover our display solutions."
+  },
+  "mission": {
+    "title": "Vision & Mission",
+    "text": "We transform building facades into digital communication surfaces — intelligent, sustainable, impactful."
+  },
+  "appSection": {
+    "title": "Always in control.",
+    "text": "Manage all your EDDAIR displays centrally via our app. Upload content, set schedules, measure performance — all in real time.",
+    "cta": "LEARN MORE"
+  },
+  "accessories": {
+    "title": "Find the perfect configuration.",
+    "text": "From mounting kits to protective enclosures — discover the right accessories for your EDDAIR display solution.",
+    "cta": "DISCOVER ACCESSORIES"
+  },
+  "experience": {
+    "title": "Experience eddy live.",
+    "text": "Visit one of our showrooms or book a personal demo.",
+    "ctaShowroom": "FIND SHOWROOM",
+    "ctaDemo": "BOOK A DEMO"
+  },
+  "sustainability": {
+    "title": "Digital Advertising. Sustainable.",
+    "text1": "No paper. No poster changes. No waste. EDDAIR display solutions replace traditional print advertising with digital content — controllable, measurable, resource-efficient.",
+    "text2": "Impact requires responsibility. And we are just getting started.",
+    "cta": "LEARN MORE"
+  },
+  "b2b": {
+    "title": "EDDAIR for your property?",
+    "cta": "INQUIRE NOW"
+  },
+  "trustBar": {
+    "plugPlay": "Plug & Play Installation",
+    "centralControl": "Central Control",
+    "madeInGermany": "Made in Germany",
+    "personalSupport": "Personal Support"
+  },
+  "newsletter": {
+    "title": "STAY INFORMED",
+    "text": "News, updates and references: Be the first to know.",
+    "placeholder": "Email*",
+    "cta": "SUBSCRIBE",
+    "privacy": "EDDAIR will only use your data for the specified purposes."
+  },
+  "stories": {
+    "title": "Our References",
+    "cta": "VIEW ALL"
+  },
+  "productSlider": {
+    "title": "Our Products",
+    "learnMore": "LEARN MORE"
+  },
+  "footer": {
+    "about": "About EDDAIR",
+    "products": "Products",
+    "references": "References",
+    "cases": "References",
+    "contact": "Contact",
+    "support": "Support",
+    "ourStory": "Our Story",
+    "career": "Careers",
+    "press": "Press",
+    "bookDemo": "Book a demo",
+    "helpCenter": "Help Center",
+    "guides": "Guides",
+    "imprint": "Legal Notice",
+    "privacy": "Privacy Policy"
+  },
+  "contactPage": {
+    "title": "Contact",
+    "metaDescription": "Contact EDDAIR – we will get back to you within 24 hours.",
+    "text": "Have questions about our display solutions? Write to us – we will get back to you within 24 hours."
+  },
+  "productsPage": {
+    "title": "Products",
+    "metaDescription": "EDDAIR display solutions: eddy-wall-box, eddy-mobile, eddy-window, eddy-outdoor.",
+    "discover": "DISCOVER"
+  },
+  "meta": {
+    "title": "EDDAIR – Digital Presence",
+    "description": "EDDAIR display solutions: eddy-wall-box, eddy-mobile, eddy-window, eddy-outdoor. Digital advertising surfaces for architecture and communication."
+  }
+}

@@ -1,5 +1,7 @@
 ---
-// Split-Layout 50/50 - Dashboard Steuerung
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="py-20 md:py-32 bg-white animate-on-scroll">
@@ -7,14 +9,13 @@
     <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
       <div class="order-2 md:order-1 px-4 md:px-0">
         <h2 class="text-3xl md:text-4xl font-semibold text-[var(--text-primary)] mb-6">
-          Immer unter Kontrolle.
+          {t.appSection.title}
         </h2>
         <p class="text-base text-[var(--text-gray)] leading-relaxed">
-          Das EDDAIR Dashboard bietet ein offenes und vielseitiges System, das genau zu Ihren Anforderungen passt. Steuern Sie alle Displays zentral — Inhalte ändern, Zeitpläne setzen, Performance messen. Von überall.
+          {t.appSection.text}
         </p>
       </div>
       <div class="order-1 md:order-2">
-        <!-- Platzhalter: Dashboard Mockup -->
         <div class="aspect-video bg-[#e0e0e0] flex items-center justify-center rounded-lg">
           <span class="text-[var(--text-gray)] text-sm">Dashboard Mockup</span>
         </div>

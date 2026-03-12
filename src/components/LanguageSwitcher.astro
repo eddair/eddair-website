@@ -1,0 +1,52 @@
+---
+import { getLangFromUrl, getLocalizedPath } from '../i18n/utils';
+
+interface Props { slot?: string; }
+const { slot = 'a' } = Astro.props;
+const currentLang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+const uid = `uk-${slot}-${currentPath.replace(/[^a-z0-9]/gi, '-')}`.replace(/-+/g, '-') || 'root';
+
+const dePath = getLocalizedPath(currentPath, 'de');
+const enPath = getLocalizedPath(currentPath, 'en');
+---
+
+<div class="flex items-center gap-2">
+  <a
+    href={dePath}
+    class:list={[
+      'flex items-center gap-1 text-xs uppercase tracking-wider transition-opacity',
+      currentLang === 'de' ? 'opacity-100 font-semibold' : 'opacity-50 hover:opacity-80'
+    ]}
+    aria-label="Deutsch"
+    title="Deutsch"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" width="20" height="14" class="rounded-[2px] shadow-sm border border-black/10">
+      <rect width="5" height="1" y="0" fill="#000"/>
+      <rect width="5" height="1" y="1" fill="#D00"/>
+      <rect width="5" height="1" y="2" fill="#FFCE00"/>
+    </svg>
+  </a>
+  <span class="text-inherit opacity-30 text-xs">|</span>
+  <a
+    href={enPath}
+    class:list={[
+      'flex items-center gap-1 text-xs uppercase tracking-wider transition-opacity',
+      currentLang === 'en' ? 'opacity-100 font-semibold' : 'opacity-50 hover:opacity-80'
+    ]}
+    aria-label="English"
+    title="English"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="20" height="14" class="rounded-[2px] shadow-sm border border-black/10">
+      <clipPath id={`${uid}-s`}><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+      <clipPath id={`${uid}-t`}><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+      <g clip-path={`url(#${uid}-s)`}>
+        <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" clip-path={`url(#${uid}-t)`} stroke="#C8102E" stroke-width="4"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+      </g>
+    </svg>
+  </a>
+</div>

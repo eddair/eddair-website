@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { getLangFromUrl } from '../i18n/utils';
 
 interface Props {
   title: string;
@@ -7,6 +8,7 @@ interface Props {
   image?: string;
 }
 
+const lang = getLangFromUrl(Astro.url);
 const { title, description, image = '/images/og-default.jpg' } = Astro.props;
 const canonicalUrl = `https://eddair.com${Astro.url.pathname}`;
 
@@ -24,7 +26,7 @@ const jsonLd = {
 };
 ---
 
-<html lang="de">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,7 +40,7 @@ const jsonLd = {
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={`https://eddair.com${image}`} />
-    <meta property="og:locale" content="de_DE" />
+    <meta property="og:locale" content={lang === 'de' ? 'de_DE' : 'en_GB'} />
 
     <!-- Google Fonts - DM Sans 300, 400, 500, 600, 700 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

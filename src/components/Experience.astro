@@ -1,5 +1,7 @@
 ---
-// Showroom / Erleben - Split-Layout
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="py-20 md:py-32">
@@ -7,18 +9,17 @@
     <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
       <div>
         <h2 class="text-3xl md:text-4xl font-semibold text-[var(--text-primary)] mb-6">
-          Erleben Sie eddy live.
+          {t.experience.title}
         </h2>
         <a
-          href="/demo"
+          href={getLocalizedPath('/demo', lang)}
           class="inline-flex items-center justify-center w-fit px-8 py-4 bg-[var(--btn-bg)] text-[var(--btn-text)] text-sm uppercase tracking-[2px] hover:bg-[#333] transition-colors"
           style="border-radius: var(--btn-border-radius);"
         >
-          LIVE-DEMO BUCHEN
+          {t.experience.ctaDemo}
         </a>
       </div>
       <div>
-        <!-- Platzhalter: Showroom-Foto -->
         <div class="aspect-[4/3] bg-[#e0e0e0] flex items-center justify-center rounded-lg">
           <span class="text-[var(--text-gray)] text-sm">Showroom Foto</span>
         </div>
