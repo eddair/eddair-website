@@ -1,0 +1,49 @@
+---
+const products = [
+  {
+    name: 'EDDAIR Pro Display',
+    description: 'Professionelle Digital Signage Lösung für Einzelhandel und Unternehmen.',
+    href: '/products#pro',
+    image: '/images/products/pro-placeholder.jpg',
+  },
+  {
+    name: 'EDDAIR Touch',
+    description: 'Interaktiver Touchscreen für Showrooms, Empfangsbereiche und Events.',
+    href: '/products#touch',
+    image: '/images/products/touch-placeholder.jpg',
+  },
+  {
+    name: 'EDDAIR Wall',
+    description: 'Videowall-System für große Flächen und immersive Erlebnisse.',
+    href: '/products#wall',
+    image: '/images/products/wall-placeholder.jpg',
+  },
+];
+---
+
+<section class="py-24 px-6 lg:px-12 animate-on-scroll">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Unsere Produkte</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      {products.map((product) => (
+        <a
+          href={product.href}
+          class="group block bg-white/5 border border-white/10 hover:border-[#00d4ff]/50 transition-all duration-300 overflow-hidden"
+        >
+          <div class="aspect-[4/3] bg-gradient-to-b from-gray-800 to-gray-900 flex items-center justify-center">
+            <span class="text-white/30 text-sm uppercase tracking-wider">Bild-Platzhalter</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 group-hover:text-[#00d4ff] transition-colors">
+              {product.name}
+            </h3>
+            <p class="text-white/70 text-sm mb-4">{product.description}</p>
+            <span class="text-[#00d4ff] text-sm uppercase tracking-wider group-hover:underline">
+              Mehr erfahren →
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

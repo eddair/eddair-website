@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ProductShowcase from '../components/ProductShowcase.astro';
+import Features from '../components/Features.astro';
+import UseCases from '../components/UseCases.astro';
+import CTASection from '../components/CTASection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Premium Digital Signage Displays"
+  description="EDDAIR — Premium Digital Signage Displays und interaktive Touchscreen-Lösungen für Unternehmen. 4K Displays, Cloud-Management, Made in Germany."
+>
+  <Header />
+  <main>
+    <Hero
+      headline="Die Zukunft der digitalen Kommunikation"
+      subline="Premium Digital Signage"
+      ctaText="Produkte entdecken"
+      ctaHref="/products"
+    />
+    <ProductShowcase />
+    <Features />
+    <UseCases />
+    <CTASection
+      headline="Bereit für die digitale Zukunft?"
+      ctaText="Kontakt aufnehmen"
+      ctaHref="/contact"
+    />
+  </main>
+  <Footer />
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+  </script>
+</BaseLayout>

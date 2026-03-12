@@ -1,0 +1,36 @@
+---
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="header">
+  <nav class="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+    <a href="/" class="text-xl font-bold tracking-widest text-white hover:text-[#00d4ff] transition-colors">
+      EDDAIR
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="/products" class="text-sm uppercase tracking-wider text-white/80 hover:text-white transition-colors">
+        Produkte
+      </a>
+      <a href="/contact" class="text-sm uppercase tracking-wider text-white/80 hover:text-white transition-colors">
+        Kontakt
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('header');
+    if (!header) return;
+
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        header.classList.add('bg-black/95', 'backdrop-blur-sm');
+      } else {
+        header.classList.remove('bg-black/95', 'backdrop-blur-sm');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+  });
+</script>

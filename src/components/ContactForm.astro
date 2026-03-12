@@ -1,0 +1,102 @@
+---
+---
+
+<div class="max-w-xl">
+  <form id="contact-form" class="space-y-6">
+    <div>
+      <label for="name" class="block text-sm uppercase tracking-wider text-white/70 mb-2">Name *</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        class="w-full px-4 py-3 bg-white/5 border border-white/20 text-white placeholder-white/40 focus:border-[#00d4ff] focus:outline-none transition-colors"
+        placeholder="Ihr Name"
+      />
+    </div>
+    <div>
+      <label for="email" class="block text-sm uppercase tracking-wider text-white/70 mb-2">E-Mail *</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        class="w-full px-4 py-3 bg-white/5 border border-white/20 text-white placeholder-white/40 focus:border-[#00d4ff] focus:outline-none transition-colors"
+        placeholder="ihre@email.de"
+      />
+    </div>
+    <div>
+      <label for="company" class="block text-sm uppercase tracking-wider text-white/70 mb-2">Firma</label>
+      <input
+        type="text"
+        id="company"
+        name="company"
+        class="w-full px-4 py-3 bg-white/5 border border-white/20 text-white placeholder-white/40 focus:border-[#00d4ff] focus:outline-none transition-colors"
+        placeholder="Firmenname"
+      />
+    </div>
+    <div>
+      <label for="message" class="block text-sm uppercase tracking-wider text-white/70 mb-2">Nachricht *</label>
+      <textarea
+        id="message"
+        name="message"
+        required
+        rows="5"
+        class="w-full px-4 py-3 bg-white/5 border border-white/20 text-white placeholder-white/40 focus:border-[#00d4ff] focus:outline-none transition-colors resize-none"
+        placeholder="Ihre Nachricht..."
+      />
+    </div>
+    <div id="form-message" class="hidden text-sm"></div>
+    <button
+      type="submit"
+      id="submit-btn"
+      class="w-full px-8 py-4 bg-[#00d4ff] text-black font-medium uppercase tracking-wider hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      Nachricht senden
+    </button>
+  </form>
+</div>
+
+<script>
+  document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const messageEl = document.getElementById('form-message') as HTMLDivElement;
+
+    const name = (form.querySelector('#name') as HTMLInputElement).value;
+    const email = (form.querySelector('#email') as HTMLInputElement).value;
+    const company = (form.querySelector('#company') as HTMLInputElement).value;
+    const message = (form.querySelector('#message') as HTMLTextAreaElement).value;
+
+    submitBtn.disabled = true;
+    messageEl.classList.add('hidden');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, company, message }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        messageEl.textContent = 'Vielen Dank! Ihre Nachricht wurde gesendet.';
+        messageEl.classList.remove('hidden', 'text-red-400');
+        messageEl.classList.add('text-[#00d4ff]');
+        form.reset();
+      } else {
+        messageEl.textContent = data.error || 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.';
+        messageEl.classList.remove('hidden', 'text-[#00d4ff]');
+        messageEl.classList.add('text-red-400');
+      }
+    } catch {
+      messageEl.textContent = 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.';
+      messageEl.classList.remove('hidden', 'text-[#00d4ff]');
+      messageEl.classList.add('text-red-400');
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+</script>

@@ -1,0 +1,21 @@
+---
+const useCases = [
+  'Einzelhandel & Retail',
+  'Hotels & Gastronomie',
+  'Unternehmen & Empfangsbereiche',
+  'Bildung & öffentliche Einrichtungen',
+];
+---
+
+<section class="py-24 px-6 lg:px-12 animate-on-scroll">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Einsatzbereiche</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {useCases.map((useCase) => (
+        <div class="p-6 border border-white/10 hover:border-[#00d4ff]/30 transition-colors">
+          <p class="text-lg font-medium">{useCase}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
