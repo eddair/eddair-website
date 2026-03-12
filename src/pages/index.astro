@@ -1,49 +1,36 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
 import Hero from '../components/Hero.astro';
-import ProductShowcase from '../components/ProductShowcase.astro';
-import Features from '../components/Features.astro';
-import UseCases from '../components/UseCases.astro';
-import CTASection from '../components/CTASection.astro';
+import ProductsIntro from '../components/ProductsIntro.astro';
+import ProductSlider from '../components/ProductSlider.astro';
+import Mission from '../components/Mission.astro';
+import AppSection from '../components/AppSection.astro';
+import Accessories from '../components/Accessories.astro';
+import Stories from '../components/Stories.astro';
+import Experience from '../components/Experience.astro';
+import Sustainability from '../components/Sustainability.astro';
+import B2BBanner from '../components/B2BBanner.astro';
+import TrustBar from '../components/TrustBar.astro';
+import Newsletter from '../components/Newsletter.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<BaseLayout
-  title="Premium Digital Signage Displays"
-  description="EDDAIR — Premium Digital Signage Displays und interaktive Touchscreen-Lösungen für Unternehmen. 4K Displays, Cloud-Management, Made in Germany."
->
-  <Header />
+<Layout title="EDDAIR – Digitale Präsenz" description="EDDAIR Display-Lösungen: eddy-wall-box, eddy-mobile, eddy-window, eddy-outdoor. Digitale Werbeflächen für Architektur und Kommunikation.">
+  <Navigation />
   <main>
-    <Hero
-      headline="Die Zukunft der digitalen Kommunikation"
-      subline="Premium Digital Signage"
-      ctaText="Produkte entdecken"
-      ctaHref="/products"
-    />
-    <ProductShowcase />
-    <Features />
-    <UseCases />
-    <CTASection
-      headline="Bereit für die digitale Zukunft?"
-      ctaText="Kontakt aufnehmen"
-      ctaHref="/contact"
-    />
+    <Hero />
+    <ProductsIntro />
+    <ProductSlider />
+    <Mission />
+    <AppSection />
+    <Accessories />
+    <Stories />
+    <Experience />
+    <Sustainability />
+    <B2BBanner />
+    <TrustBar />
+    <Newsletter />
+    <Footer />
   </main>
-  <Footer />
-
-  <script>
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
-  </script>
-</BaseLayout>
+</Layout>

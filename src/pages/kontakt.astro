@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Kontakt" description="Kontaktieren Sie EDDAIR – wir melden uns innerhalb von 24 Stunden.">
+  <Navigation />
+  <main class="min-h-screen">
+    <section class="py-20 md:py-32">
+      <div class="container-eddair">
+        <div class="max-w-2xl">
+          <h1 class="text-3xl md:text-4xl font-semibold text-[var(--text-primary)] mb-4">
+            Kontakt
+          </h1>
+          <p class="text-[var(--text-gray)] mb-12">
+            Haben Sie Fragen zu unseren Display-Lösungen? Schreiben Sie uns – wir melden uns innerhalb von 24 Stunden.
+          </p>
+          <ContactForm />
+        </div>
+      </div>
+    </section>
+    <Footer />
+  </main>
+</Layout>

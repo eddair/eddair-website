@@ -1,75 +1,34 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 
 const products = [
-  {
-    id: 'pro',
-    name: 'EDDAIR Pro Display',
-    description: 'Professionelle Digital Signage Lösung für Einzelhandel, Hotels und Unternehmen. 4K Ultra HD, 24/7 Betrieb, industrietauglich.',
-    specs: ['4K Ultra HD', '55" - 86"', '24/7 Betrieb', 'Cloud CMS', 'Plug & Play'],
-  },
-  {
-    id: 'touch',
-    name: 'EDDAIR Touch',
-    description: 'Interaktiver Touchscreen für Showrooms, Empfangsbereiche und Events. Multi-Touch, gestenunterstützt, hochwertige Verarbeitung.',
-    specs: ['Multi-Touch', '32" - 65"', '4K Auflösung', 'Stahlrahmen', 'Kiosk-Modus'],
-  },
-  {
-    id: 'wall',
-    name: 'EDDAIR Wall',
-    description: 'Videowall-System für große Flächen. Nahtlose Bildübergänge, skalierbar, ideal für immersive Erlebnisse.',
-    specs: ['Nahtlos', 'Skalierbar', '4K pro Panel', 'Synchrones Playback', 'Remote-Steuerung'],
-  },
+  { name: 'eddy-wall-box', href: '/eddy-wall-box' },
+  { name: 'eddy-mobile doublesided', href: '/eddy-mobile-doublesided' },
+  { name: 'eddy-mobile onesided', href: '/eddy-mobile-onesided' },
+  { name: 'eddy-window', href: '/eddy-window' },
+  { name: 'eddy-outdoor', href: '/eddy-outdoor' },
 ];
 ---
 
-<BaseLayout
-  title="Produkte | Digital Signage Displays"
-  description="EDDAIR Produktübersicht: Pro Display, Touch und Wall — Premium Digital Signage Lösungen für Unternehmen."
->
-  <Header />
-  <main>
-    {products.map((product) => (
-      <section
-        id={product.id}
-        class="min-h-screen flex flex-col justify-center py-24 px-6 lg:px-12 animate-on-scroll"
-      >
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-          <div class="aspect-video bg-gradient-to-b from-gray-800 to-gray-900 flex items-center justify-center">
-            <span class="text-white/30 text-sm uppercase tracking-wider">Bild-Platzhalter</span>
-          </div>
-          <div>
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">{product.name}</h2>
-            <p class="text-white/80 text-lg mb-8">{product.description}</p>
-            <ul class="space-y-2">
-              {product.specs.map((spec) => (
-                <li class="flex items-center gap-2">
-                  <span class="text-[#00d4ff]">✓</span>
-                  <span>{spec}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-    ))}
+<Layout title="Produkte" description="EDDAIR Display-Lösungen: eddy-wall-box, eddy-mobile, eddy-window, eddy-outdoor.">
+  <Navigation />
+  <main class="min-h-screen py-20">
+    <div class="container-eddair">
+      <h1 class="text-3xl md:text-4xl font-semibold mb-12">Produkte</h1>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {products.map((p) => (
+          <a href={p.href} class="block p-6 bg-white border border-[#e0e0e0] hover:border-[var(--text-gray)] transition-colors">
+            <div class="aspect-[4/3] bg-[#e0e0e0] flex items-center justify-center mb-4">
+              <span class="text-[var(--text-gray)] text-sm">{p.name}</span>
+            </div>
+            <h2 class="text-lg font-semibold">{p.name}</h2>
+            <span class="text-sm uppercase tracking-wider mt-2 inline-block">ENTDECKEN &gt;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+    <Footer />
   </main>
-  <Footer />
-
-  <script>
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
-  </script>
-</BaseLayout>
+</Layout>

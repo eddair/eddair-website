@@ -1,20 +1,102 @@
 ---
+const aboutLinks = [
+  { href: '/ueber-uns', label: 'Unsere Geschichte' },
+  { href: '/referenzen', label: 'Referenzen' },
+  { href: '/karriere', label: 'Karriere' },
+  { href: '/presse', label: 'Presse' },
+];
+const productLinks = [
+  { href: '/eddy-wall-box', label: 'eddy-wall-box' },
+  { href: '/eddy-mobile', label: 'eddy-mobile' },
+  { href: '/eddy-window', label: 'eddy-window' },
+  { href: '/eddy-outdoor', label: 'eddy-outdoor' },
+];
+const refLinks = [
+  { href: '/referenzen/westpark', label: 'Westpark Ingolstadt' },
+  { href: '/demo', label: 'Demo buchen' },
+];
+const supportLinks = [
+  { href: '/kontakt', label: 'Kontakt' },
+  { href: '/hilfe', label: 'Hilfezentrum' },
+  { href: '/anleitungen', label: 'Anleitungen' },
+];
 ---
 
-<footer class="py-16 px-6 lg:px-12 border-t border-white/10">
-  <div class="max-w-7xl mx-auto">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-      <span class="text-xl font-bold tracking-widest">EDDAIR</span>
-      <nav class="flex flex-wrap justify-center gap-6">
-        <a href="/products" class="text-sm text-white/70 hover:text-white transition-colors">Produkte</a>
-        <a href="/contact" class="text-sm text-white/70 hover:text-white transition-colors">Kontakt</a>
+<footer class="bg-[var(--bg-black)] text-white py-16 md:py-20">
+  <div class="container-eddair">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+      <div>
+        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">Über EDDAIR</h3>
+        <ul class="space-y-3">
+          {aboutLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-white/80 hover:text-white transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">Produkte</h3>
+        <ul class="space-y-3">
+          {productLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-white/80 hover:text-white transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">Referenzen</h3>
+        <ul class="space-y-3">
+          {refLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-white/80 hover:text-white transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">Support</h3>
+        <ul class="space-y-3">
+          {supportLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-white/80 hover:text-white transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt-8 border-t border-white/20 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <p class="text-sm text-white/70">Copyright 2026 EDDAIR</p>
+      <div class="flex gap-8">
         <a href="/impressum" class="text-sm text-white/70 hover:text-white transition-colors">Impressum</a>
         <a href="/datenschutz" class="text-sm text-white/70 hover:text-white transition-colors">Datenschutz</a>
-      </nav>
-    </div>
-    <div class="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/50">
-      <p>E-Mail: <a href="mailto:sales@eddair.com" class="text-[#00d4ff] hover:underline">sales@eddair.com</a></p>
-      <p class="mt-4">© 2024 EDDAIR. Alle Rechte vorbehalten.</p>
+      </div>
+      <div class="flex gap-6">
+        <a href="https://instagram.com/eddair" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-white/70 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        <a href="https://linkedin.com/company/eddair" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-white/70 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </footer>

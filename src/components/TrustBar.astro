@@ -1,0 +1,51 @@
+---
+const items = [
+  { label: 'Plug & Play Installation', icon: 'plug' },
+  { label: 'Zentrale Steuerung', icon: 'dashboard' },
+  { label: 'Made in Germany', icon: 'flag' },
+  { label: 'Persönlicher Support', icon: 'headset' },
+];
+---
+
+<section class="py-16 md:py-20 bg-[#f9f9f9]">
+  <div class="container-eddair">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+      {items.map((item) => (
+        <div class="flex flex-col items-center text-center">
+          <div class="w-12 h-12 mb-4 flex items-center justify-center text-[var(--text-primary)]">
+            {item.icon === 'plug' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v10"/>
+                <path d="M9 7V5a3 3 0 0 1 6 0v2"/>
+                <path d="M6 12v2a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-2"/>
+              </svg>
+            )}
+            {item.icon === 'dashboard' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" rx="1"/>
+                <rect x="14" y="3" width="7" height="7" rx="1"/>
+                <rect x="3" y="14" width="7" height="7" rx="1"/>
+                <rect x="14" y="14" width="7" height="7" rx="1"/>
+              </svg>
+            )}
+            {item.icon === 'flag' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                <line x1="4" y1="22" x2="4" y2="15"/>
+              </svg>
+            )}
+            {item.icon === 'headset' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+              </svg>
+            )}
+          </div>
+          <p class="text-xs md:text-sm uppercase tracking-wider text-[var(--text-primary)] font-medium">
+            {item.label}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

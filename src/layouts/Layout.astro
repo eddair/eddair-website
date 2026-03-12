@@ -40,11 +40,11 @@ const jsonLd = {
     <meta property="og:image" content={`https://eddair.com${image}`} />
     <meta property="og:locale" content="de_DE" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts - DM Sans 300, 400, 500, 600, 700 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300..700&display=swap"
       rel="stylesheet"
     />
 
@@ -54,7 +54,20 @@ const jsonLd = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
   </head>
-  <body class="bg-black text-white font-sans antialiased">
+  <body class="bg-[var(--bg-body)] text-[var(--text-primary)] font-sans antialiased">
     <slot />
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+        );
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+      });
+    </script>
   </body>
 </html>
