@@ -16,7 +16,7 @@ const productLinks = [
   { href: getLocalizedPath('/eddy-outdoor', lang), label: 'eddy-outdoor' },
 ];
 const refLinks = [
-  { href: getLocalizedPath('/referenzen/westpark', lang), label: 'Westpark Ingolstadt' },
+  { href: getLocalizedPath('/referenzen', lang), label: t.footer.cases },
   { href: getLocalizedPath('/demo', lang), label: t.footer.bookDemo },
 ];
 const supportLinks = [
@@ -26,74 +26,87 @@ const supportLinks = [
 ];
 ---
 
-<footer class="bg-[var(--bg-black)] text-white py-16 md:py-20">
-  <div class="container-eddair">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
-      <div>
-        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">{t.footer.about}</h3>
-        <ul class="space-y-3">
-          {aboutLinks.map((link) => (
-            <li>
-              <a href={link.href} class="text-sm text-white/80 hover:text-white transition-colors">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">{t.footer.products}</h3>
-        <ul class="space-y-3">
-          {productLinks.map((link) => (
-            <li>
-              <a href={link.href} class="text-sm text-white/80 hover:text-white transition-colors">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">{t.footer.cases}</h3>
-        <ul class="space-y-3">
-          {refLinks.map((link) => (
-            <li>
-              <a href={link.href} class="text-sm text-white/80 hover:text-white transition-colors">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-sm uppercase tracking-wider mb-6 font-semibold">{t.footer.support}</h3>
-        <ul class="space-y-3">
-          {supportLinks.map((link) => (
-            <li>
-              <a href={link.href} class="text-sm text-white/80 hover:text-white transition-colors">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+<footer class="footer">
+  <!-- BEREICH 1: Kontakt-Leiste -->
+  <div class="footer__contact-bar">
+    <div class="footer__contact-inner">
+      <a href={getLocalizedPath('/kontakt', lang)} class="footer__contact-link">{t.footer.contactUs}</a>
+      <a href="#" class="footer__contact-link footer__chat-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        {t.footer.chatWithUs}
+      </a>
+    </div>
+  </div>
+
+  <!-- BEREICH 2: Haupt-Footer (4 Spalten) -->
+  <div class="footer__main">
+    <div class="footer__main-inner">
+      <div class="footer__grid">
+        <div class="footer__column">
+          <h3 class="footer__heading">{t.footer.about}</h3>
+          <ul class="footer__links">
+            {aboutLinks.map((link) => (
+              <li><a href={link.href} class="footer__link">{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h3 class="footer__heading">{t.footer.products}</h3>
+          <ul class="footer__links">
+            {productLinks.map((link) => (
+              <li><a href={link.href} class="footer__link">{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h3 class="footer__heading">{t.footer.references}</h3>
+          <ul class="footer__links">
+            {refLinks.map((link) => (
+              <li><a href={link.href} class="footer__link">{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h3 class="footer__heading">{t.footer.support}</h3>
+          <ul class="footer__links">
+            {supportLinks.map((link) => (
+              <li><a href={link.href} class="footer__link">{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
+  </div>
 
-    <div class="pt-8 border-t border-white/20 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-      <p class="text-sm text-white/70">Copyright 2026 EDDAIR</p>
-      <div class="flex gap-8">
-        <a href={getLocalizedPath('/impressum', lang)} class="text-sm text-white/70 hover:text-white transition-colors">{t.footer.imprint}</a>
-        <a href={getLocalizedPath('/datenschutz', lang)} class="text-sm text-white/70 hover:text-white transition-colors">{t.footer.privacy}</a>
+  <!-- BEREICH 3: Footer-Bottom-Leiste -->
+  <div class="footer__bottom">
+    <div class="footer__bottom-inner">
+      <div class="footer__bottom-left">
+        <span class="footer__lang">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" width="20" height="12" class="footer__flag">
+            <rect width="5" height="1" y="0" fill="#000"/>
+            <rect width="5" height="1" y="1" fill="#D00"/>
+            <rect width="5" height="1" y="2" fill="#FFCE00"/>
+          </svg>
+          DE
+        </span>
       </div>
-      <div class="flex gap-6">
-        <a href="https://instagram.com/eddair" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-white/70 hover:text-white transition-colors">
+      <p class="footer__copyright">Copyright 2026 EDDAIR</p>
+      <div class="footer__legal">
+        <a href={getLocalizedPath('/impressum', lang)} class="footer__legal-link">{t.footer.imprint}</a>
+        <a href={getLocalizedPath('/datenschutz', lang)} class="footer__legal-link">{t.footer.privacy}</a>
+      </div>
+      <div class="footer__bottom-right">
+        <a href="https://instagram.com/eddair" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="footer__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
           </svg>
         </a>
-        <a href="https://linkedin.com/company/eddair" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-white/70 hover:text-white transition-colors">
+        <a href="https://linkedin.com/company/eddair" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="footer__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
             <rect x="2" y="9" width="4" height="12"/>
@@ -104,3 +117,186 @@ const supportLinks = [
     </div>
   </div>
 </footer>
+
+<style>
+  .footer {
+    font-family: "DM Sans", sans-serif;
+  }
+
+  /* BEREICH 1: Kontakt-Leiste */
+  .footer__contact-bar {
+    background: #ffffff;
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .footer__contact-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer__contact-link {
+    font-size: 14px;
+    color: #0a0a0a;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .footer__contact-link:hover {
+    opacity: 0.7;
+  }
+
+  .footer__chat-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* BEREICH 2: Haupt-Footer */
+  .footer__main {
+    background: #f0f0f0;
+    padding: 80px 0 60px 0;
+  }
+
+  .footer__main-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+
+  .footer__heading {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0a0a0a;
+    margin: 0 0 24px 0;
+  }
+
+  .footer__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer__links li {
+    margin: 0;
+  }
+
+  .footer__link {
+    font-size: 14px;
+    color: #0a0a0a;
+    line-height: 2.2;
+    text-decoration: none;
+    display: block;
+    transition: opacity 0.2s;
+  }
+
+  .footer__link:hover {
+    opacity: 0.7;
+  }
+
+  /* BEREICH 3: Footer-Bottom */
+  .footer__bottom {
+    background: #0a0a0a;
+    padding: 20px 0;
+  }
+
+  .footer__bottom-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer__bottom-left {
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .footer__lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #fff;
+  }
+
+  .footer__flag {
+    flex-shrink: 0;
+  }
+
+  .footer__copyright {
+    font-size: 12px;
+    color: #888888;
+    margin: 0;
+  }
+
+  .footer__legal {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer__legal-link {
+    font-size: 12px;
+    color: #888888;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .footer__legal-link:hover {
+    opacity: 0.7;
+  }
+
+  .footer__bottom-right {
+    display: flex;
+    gap: 16px;
+  }
+
+  .footer__icon {
+    color: #fff;
+    transition: opacity 0.2s;
+  }
+
+  .footer__icon:hover {
+    opacity: 0.7;
+  }
+
+  /* Responsive Mobile */
+  @media (max-width: 768px) {
+    .footer__contact-inner {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .footer__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer__main {
+      padding: 60px 0 40px 0;
+    }
+
+    .footer__bottom-inner {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .footer__legal {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>
