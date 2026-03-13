@@ -78,8 +78,9 @@ h3 {
 
 /* Abstände zwischen Sektionen — 20px grauer Streifen */
 .section-gap {
-  padding: 10px 0;
-  background: #EBEBEB;
+  margin-bottom: 20px;
+  padding: 0;
+  background: transparent;
   width: 100%;
 }
 
@@ -99,7 +100,6 @@ h3 {
 
 .section__inner {
   max-width: 1100px;
-  width: 100%;
   margin: 0 auto;
   padding: 60px 80px;
   box-sizing: border-box;
@@ -159,7 +159,7 @@ html {
 
 /* Container */
 .container-eddair {
-  max-width: 1100px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.5rem;
@@ -173,11 +173,6 @@ html {
 }
 
 /* Footer */
-/* Border-Radius global auf 0 */
-*, *::before, *::after {
-  border-radius: 0 !important;
-}
-
 footer.footer {
   background-color: #F0F0F0 !important;
 }
