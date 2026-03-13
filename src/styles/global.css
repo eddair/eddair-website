@@ -185,3 +185,8 @@ footer .footer__main {
 footer .footer__bottom {
   background-color: #000000 !important;
 }
+
+/* Border-Radius global auf 0 */
+*, *::before, *::after {
+  border-radius: 0 !important;
+}
