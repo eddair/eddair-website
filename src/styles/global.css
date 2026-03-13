@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+main, section {
+  max-width: none;
+}
+
+section {
+  margin: 0;
+  padding: 0;
+}
+
 @theme {
   --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --color-black: #000000;
@@ -63,13 +76,18 @@ h3 {
 
 /* Abstände zwischen Sektionen */
 .section-gap {
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding: 20px 0;
   background: #EBEBEB;
+  width: 100%;
 }
 
-section {
-  margin: 0;
+main {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0 !important;
 }
 
 /* Scroll animations */
