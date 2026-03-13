@@ -32,18 +32,18 @@ const refs = [
 
 <style>
   .ref-section {
-    width: 100%;
-    background: #f4f4f4;
-    padding: 60px 40px;
-    margin: 0;
-    border-radius: 0;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
   }
 
   .ref-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
+    padding: 40px 40px 20px 40px !important;
   }
 
   .ref-title {
@@ -71,15 +71,15 @@ const refs = [
   }
 
   .ref-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0 !important;
   }
 
   .ref-card {
     position: relative;
-    height: 340px;
-    border-radius: 6px;
+    height: 340px !important;
+    border-radius: 0 !important;
     overflow: hidden;
     text-decoration: none;
   }

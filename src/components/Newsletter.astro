@@ -1,110 +1,96 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const { lang = 'de' } = Astro.props;
 ---
 
-<section class="nl-section">
-  <div class="nl-card">
-    <div class="nl-left">
-      <h2 class="nl-title">{t.newsletter.title}</h2>
-      <p class="nl-text">{t.newsletter.text}</p>
+<section class="newsletter-section">
+  <div class="newsletter-card">
+    <div class="newsletter-left">
+      <h3>BLEIBEN SIE INFORMIERT</h3>
+      <p>Neuigkeiten, Updates und Referenzen: Hier erfahren Sie es zuerst.</p>
     </div>
-    <div class="nl-right">
-      <input class="nl-input" type="email" placeholder={t.newsletter.placeholder} />
-      <button class="nl-btn">{t.newsletter.cta}</button>
-      <small class="nl-small">{t.newsletter.privacy}</small>
+    <div class="newsletter-right">
+      <input type="email" placeholder="E-Mail*" />
+      <button>ABONNIEREN</button>
+      <span>EDDAIR wird Ihre Daten nur für die angegebenen Zwecke verwenden.</span>
     </div>
   </div>
 </section>
 
 <style>
-  .nl-section {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: auto;
-    margin-left: -50vw;
-    background: #0a0a0a;
-    padding: 80px 40px;
-    box-sizing: border-box;
-  }
+/* FULLSCREEN SEKTION - MUSS VON RAND ZU RAND GEHEN */
+.newsletter-section {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 80px 40px !important;
+  background: #0a0a0a !important;
+  box-sizing: border-box !important;
+}
 
-  .nl-card {
-    max-width: 760px;
-    margin: 0 auto;
-    background: #ffffff;
-    border-radius: 4px;
-    padding: 48px 56px;
-    display: grid;
-    grid-template-columns: 55% 45%;
-    gap: 40px;
-    align-items: center;
-  }
+/* WEISSE KARTE ZENTRIERT */
+.newsletter-card {
+  max-width: 760px !important;
+  margin: 0 auto !important;
+  background: #ffffff !important;
+  border-radius: 4px !important;
+  padding: 48px 56px !important;
+  display: grid !important;
+  grid-template-columns: 55% 45% !important;
+  gap: 40px !important;
+  align-items: center !important;
+}
 
-  .nl-title {
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #0a0a0a;
-    margin: 0 0 8px 0;
-  }
+/* LINKE SEITE */
+.newsletter-left h3 {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  margin: 0 0 12px 0 !important;
+  color: #0a0a0a !important;
+}
 
-  .nl-text {
-    font-size: 13px;
-    color: #696969;
-    margin: 0;
-    line-height: 1.5;
-  }
+.newsletter-left p {
+  font-size: 13px !important;
+  color: #696969 !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
+}
 
-  .nl-right {
-    display: flex;
-    flex-direction: column;
-  }
+/* RECHTE SEITE */
+.newsletter-right {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
 
-  .nl-input {
-    width: 100%;
-    height: 44px;
-    padding: 0 16px;
-    border: 1px solid #ccc;
-    border-radius: 0;
-    font-size: 13px;
-    box-sizing: border-box;
-    outline: none;
-    margin-bottom: 10px;
-  }
+.newsletter-right input {
+  width: 100% !important;
+  height: 44px !important;
+  border: 1px solid #cccccc !important;
+  padding: 0 16px !important;
+  font-size: 14px !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  background: #fff !important;
+}
 
-  .nl-btn {
-    width: 100%;
-    height: 44px;
-    padding: 0;
-    background: #0a0a0a;
-    color: #ffffff;
-    border: none;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    border-radius: 0;
-  }
+.newsletter-right button {
+  width: 100% !important;
+  height: 44px !important;
+  background: #0a0a0a !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+}
 
-  .nl-btn:hover {
-    opacity: 0.9;
-  }
-
-  .nl-small {
-    font-size: 11px;
-    color: #696969;
-    margin-top: 8px;
-  }
-
-  @media (max-width: 768px) {
-    .nl-card {
-      grid-template-columns: 1fr;
-      padding: 24px;
-      gap: 24px;
-    }
-  }
+.newsletter-right span {
+  font-size: 11px !important;
+  color: #696969 !important;
+  line-height: 1.4 !important;
+}
 </style>
