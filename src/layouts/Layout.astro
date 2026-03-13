@@ -43,21 +43,13 @@ const jsonLd = {
     <meta property="og:image" content={`https://eddair.com${image}`} />
     <meta property="og:locale" content={lang === 'de' ? 'de_DE' : 'en_GB'} />
 
-    <!-- Google Fonts - DM Sans 300, 400, 500, 600, 700 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300..700&display=swap"
-      rel="stylesheet"
-    />
-
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
   </head>
-  <body class="bg-[var(--bg-body)] text-[var(--text-primary)] font-sans antialiased" style="background-color: #f4f4f4 !important;">
+  <body class="bg-[var(--bg-body)] text-[var(--text-primary)] font-sans antialiased" style="background-color: #EBEBEB !important;">
     <slot />
     <script>
       document.addEventListener('DOMContentLoaded', () => {

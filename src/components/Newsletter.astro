@@ -1,96 +1,93 @@
----
-const { lang = 'de' } = Astro.props;
----
-
-<section class="newsletter-section">
-  <div class="newsletter-card">
-    <div class="newsletter-left">
-      <h3>BLEIBEN SIE INFORMIERT</h3>
-      <p>Neuigkeiten, Updates und Referenzen: Hier erfahren Sie es zuerst.</p>
+<section class="nl-outer">
+  <div class="nl-card">
+    <div class="nl-left">
+      <p class="nl-label">BLEIBEN SIE INFORMIERT</p>
+      <p class="nl-sub">Neuigkeiten, Updates und Referenzen: Hier erfahren Sie es zuerst.</p>
     </div>
-    <div class="newsletter-right">
-      <input type="email" placeholder="E-Mail*" />
-      <button>ABONNIEREN</button>
-      <span>EDDAIR wird Ihre Daten nur für die angegebenen Zwecke verwenden.</span>
+    <div class="nl-right">
+      <input type="email" class="nl-input" placeholder="E-Mail*" />
+      <button class="nl-btn">ABONNIEREN</button>
+      <span class="nl-disclaimer">EDDAIR wird Ihre Daten nur für die angegebenen Zwecke verwenden.</span>
     </div>
   </div>
 </section>
 
 <style>
-/* FULLSCREEN SEKTION - MUSS VON RAND ZU RAND GEHEN */
-.newsletter-section {
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 80px 40px !important;
-  background: #0a0a0a !important;
-  box-sizing: border-box !important;
+.nl-outer {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 60px 80px;
+  background: #000000;
+  box-sizing: border-box;
 }
 
-/* WEISSE KARTE ZENTRIERT */
-.newsletter-card {
-  max-width: 760px !important;
-  margin: 0 auto !important;
-  background: #ffffff !important;
-  border-radius: 4px !important;
-  padding: 48px 56px !important;
-  display: grid !important;
-  grid-template-columns: 55% 45% !important;
-  gap: 40px !important;
-  align-items: center !important;
+.nl-card {
+  max-width: 836px;
+  width: 100%;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 40px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  box-sizing: border-box;
 }
 
-/* LINKE SEITE */
-.newsletter-left h3 {
-  font-size: 16px !important;
-  font-weight: 700 !important;
-  letter-spacing: 2px !important;
-  text-transform: uppercase !important;
-  margin: 0 0 12px 0 !important;
-  color: #0a0a0a !important;
+.nl-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #000000;
+  margin: 0 0 12px 0;
 }
 
-.newsletter-left p {
-  font-size: 13px !important;
-  color: #696969 !important;
-  margin: 0 !important;
-  line-height: 1.5 !important;
+.nl-sub {
+  font-size: 14px;
+  color: #6B6B6B;
+  margin: 0;
+  line-height: 1.5;
 }
 
-/* RECHTE SEITE */
-.newsletter-right {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 10px !important;
+.nl-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.newsletter-right input {
-  width: 100% !important;
-  height: 44px !important;
-  border: 1px solid #cccccc !important;
-  padding: 0 16px !important;
-  font-size: 14px !important;
-  box-sizing: border-box !important;
-  outline: none !important;
-  background: #fff !important;
+.nl-input {
+  width: 100%;
+  height: 44px;
+  border: 1px solid #D0D0D0;
+  padding: 0 16px;
+  font-size: 14px;
+  box-sizing: border-box;
+  background: #fff;
+  outline: none;
+  font-family: inherit;
 }
 
-.newsletter-right button {
-  width: 100% !important;
-  height: 44px !important;
-  background: #0a0a0a !important;
-  color: #ffffff !important;
-  border: none !important;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  letter-spacing: 2px !important;
-  text-transform: uppercase !important;
-  cursor: pointer !important;
+.nl-btn {
+  width: 100%;
+  height: 44px;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-.newsletter-right span {
-  font-size: 11px !important;
-  color: #696969 !important;
-  line-height: 1.4 !important;
+.nl-disclaimer {
+  font-size: 11px;
+  color: #999999;
+  line-height: 1.4;
 }
 </style>
