@@ -12,6 +12,7 @@
 /* Force light page background — prevents any dark override from html/body */
 html, body {
   background-color: #f4f4f4 !important;
+  overflow-x: hidden;
 }
 
 :root {
