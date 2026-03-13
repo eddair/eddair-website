@@ -4,43 +4,117 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="py-20 md:py-32 relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#0a0a0a]" />
-
-  <div class="relative z-10 container-eddair">
-    <div class="max-w-2xl mx-auto bg-white p-12 md:p-16 rounded-lg shadow-xl">
-      <h2 class="text-2xl md:text-3xl font-semibold text-[var(--text-primary)] mb-4">
-        {t.newsletter.title}
-      </h2>
-      <p class="text-[var(--text-gray)] text-base mb-8">
-        {t.newsletter.text}
-      </p>
-      <form id="newsletter-form" class="flex flex-col sm:flex-row gap-4">
-        <input
-          type="email"
-          name="email"
-          placeholder={t.newsletter.placeholder}
-          required
-          class="flex-1 px-4 py-3 border border-[#e0e0e0] text-[var(--text-primary)] placeholder-[var(--text-gray)] focus:border-[var(--text-primary)] focus:outline-none"
-        />
-        <button
-          type="submit"
-          class="px-8 py-4 bg-[var(--btn-bg)] text-[var(--btn-text)] text-sm uppercase tracking-[2px] hover:bg-[#333] transition-colors whitespace-nowrap"
-          style="border-radius: var(--btn-border-radius);"
-        >
-          {t.newsletter.cta}
-        </button>
-      </form>
-      <p class="mt-6 text-xs text-[var(--text-gray)]">
-        {t.newsletter.privacy}
-      </p>
+<section class="nl-section">
+  <div class="nl-box">
+    <div class="nl-card">
+      <div class="nl-left">
+        <h2 class="nl-title">{t.newsletter.title}</h2>
+        <p class="nl-text">{t.newsletter.text}</p>
+      </div>
+      <div class="nl-right">
+        <input class="nl-input" type="email" placeholder={t.newsletter.placeholder} />
+        <button class="nl-btn">{t.newsletter.cta}</button>
+        <small class="nl-small">{t.newsletter.privacy}</small>
+      </div>
     </div>
   </div>
 </section>
 
-<script>
-  document.getElementById('newsletter-form')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Newsletter-Anmeldung wird bald verfügbar sein.');
-  });
-</script>
+<style>
+  .nl-section {
+    width: 100%;
+    background: #f4f4f4;
+    padding: 30px 0;
+  }
+
+  .nl-box {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #0a0a0a;
+    border-radius: 10px;
+    padding: 30px;
+  }
+
+  .nl-card {
+    background: #ffffff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 32px 40px;
+    gap: 60px;
+  }
+
+  .nl-left {
+    flex: 0 0 55%;
+  }
+
+  .nl-title {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0a0a0a;
+    margin: 0 0 8px 0;
+  }
+
+  .nl-text {
+    font-size: 13px;
+    color: #555555;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .nl-right {
+    flex: 0 0 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nl-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #cccccc;
+    border-radius: 0;
+    font-size: 13px;
+    box-sizing: border-box;
+    outline: none;
+  }
+
+  .nl-btn {
+    width: 100%;
+    padding: 10px 14px;
+    background: #0a0a0a;
+    color: #ffffff;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 0;
+  }
+
+  .nl-btn:hover {
+    opacity: 0.9;
+  }
+
+  .nl-small {
+    font-size: 11px;
+    color: #888888;
+  }
+
+  @media (max-width: 768px) {
+    .nl-card {
+      flex-direction: column;
+      padding: 24px;
+      gap: 24px;
+    }
+    .nl-left,
+    .nl-right {
+      flex: unset;
+      width: 100%;
+    }
+  }
+</style>

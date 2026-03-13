@@ -9,7 +9,7 @@
         id="name"
         name="name"
         required
-        class="w-full px-4 py-3 bg-white/5 border border-white/20 text-white placeholder-white/40 focus:border-[#00d4ff] focus:outline-none transition-colors"
+        class="w-full px-4 py-3 bg-white/5 border border-white/20 text-white placeholder-white/40 focus:border-[#696969] focus:outline-none transition-colors"
         placeholder="Ihr Name"
       />
     </div>
@@ -20,7 +20,7 @@
         id="email"
         name="email"
         required
-        class="w-full px-4 py-3 bg-white/5 border border-white/20 text-white placeholder-white/40 focus:border-[#00d4ff] focus:outline-none transition-colors"
+        class="w-full px-4 py-3 bg-white/5 border border-white/20 text-white placeholder-white/40 focus:border-[#696969] focus:outline-none transition-colors"
         placeholder="ihre@email.de"
       />
     </div>
@@ -30,7 +30,7 @@
         type="text"
         id="company"
         name="company"
-        class="w-full px-4 py-3 bg-white/5 border border-white/20 text-white placeholder-white/40 focus:border-[#00d4ff] focus:outline-none transition-colors"
+        class="w-full px-4 py-3 bg-white/5 border border-white/20 text-white placeholder-white/40 focus:border-[#696969] focus:outline-none transition-colors"
         placeholder="Firmenname"
       />
     </div>
@@ -49,7 +49,7 @@
     <button
       type="submit"
       id="submit-btn"
-      class="w-full px-8 py-4 bg-[#00d4ff] text-black font-medium uppercase tracking-wider hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+      class="w-full px-8 py-4 bg-[#0a0a0a] text-white font-medium uppercase tracking-wider hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
     >
       Nachricht senden
     </button>
@@ -88,11 +88,11 @@
 
       messageEl.textContent = data.message || 'Vielen Dank! Ihre Nachricht wurde gesendet.';
       messageEl.classList.remove('hidden', 'text-red-400');
-      messageEl.classList.add('text-[#00d4ff]');
+      messageEl.classList.add('text-[#696969]');
       form.reset();
     } catch (err) {
       messageEl.textContent = 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es spaeter erneut oder schreiben Sie an sales@eddair.com';
-      messageEl.classList.remove('hidden', 'text-[#00d4ff]');
+      messageEl.classList.remove('hidden', 'text-[#696969]');
       messageEl.classList.add('text-red-400');
     } finally {
       submitBtn.disabled = false;

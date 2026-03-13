@@ -1,0 +1,125 @@
+---
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const refs = [
+  { name: 'Westpark', location: 'Ingolstadt', href: getLocalizedPath('/referenzen/westpark', lang) },
+  { name: 'Projekt 2', location: 'Stadt', href: getLocalizedPath('/referenzen/projekt-2', lang) },
+  { name: 'Projekt 3', location: 'Stadt', href: getLocalizedPath('/referenzen/projekt-3', lang) },
+  { name: 'Projekt 4', location: 'Stadt', href: getLocalizedPath('/referenzen/projekt-4', lang) },
+];
+---
+
+<section class="ref-section">
+  <div class="ref-header">
+    <h2 class="ref-title">{t.stories.title}</h2>
+    <a href={getLocalizedPath('/referenzen', lang)} class="ref-cta">{t.stories.cta}</a>
+  </div>
+  <div class="ref-grid">
+    {refs.map((r) => (
+      <a href={r.href} class="ref-card">
+        <div class="ref-card-bg" />
+        <div class="ref-card-overlay" />
+        <div class="ref-card-text">
+          <p class="ref-card-name">{r.name}</p>
+          <p class="ref-card-loc">{r.location}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .ref-section {
+    width: 100%;
+    background: #f4f4f4;
+    padding: 60px 40px;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .ref-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .ref-title {
+    font-size: 28px;
+    font-weight: 300;
+    color: #0a0a0a;
+    margin: 0;
+  }
+
+  .ref-cta {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #0a0a0a;
+    text-decoration: none;
+    padding: 12px 24px;
+    border: 1px solid #0a0a0a;
+    border-radius: 0;
+  }
+
+  .ref-cta:hover {
+    background: #0a0a0a;
+    color: #ffffff;
+  }
+
+  .ref-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .ref-card {
+    position: relative;
+    aspect-ratio: 3/4;
+    border-radius: 6px;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  .ref-card-bg {
+    position: absolute;
+    inset: 0;
+    background: #e0e0e0;
+  }
+
+  .ref-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  }
+
+  .ref-card-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px;
+    color: #ffffff;
+  }
+
+  .ref-card-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+  }
+
+  .ref-card-loc {
+    font-size: 14px;
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .ref-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

@@ -27,93 +27,62 @@ const supportLinks = [
 ---
 
 <footer class="footer">
-  <!-- BEREICH 1: Kontakt-Leiste -->
   <div class="footer__contact-bar">
-    <div class="footer__contact-inner">
-      <a href={getLocalizedPath('/kontakt', lang)} class="footer__contact-link">{t.footer.contactUs}</a>
-      <a href="#" class="footer__contact-link footer__chat-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        </svg>
-        {t.footer.chatWithUs}
-      </a>
-    </div>
+    <a href={getLocalizedPath('/kontakt', lang)} class="footer__contact-link">{t.footer.contactUs}</a>
   </div>
 
-  <!-- BEREICH 2: Haupt-Footer (4 Spalten) -->
   <div class="footer__main">
-    <div class="footer__main-inner">
-      <div class="footer__grid">
-        <div class="footer__column">
-          <h3 class="footer__heading">{t.footer.about}</h3>
-          <ul class="footer__links">
-            {aboutLinks.map((link) => (
-              <li><a href={link.href} class="footer__link">{link.label}</a></li>
-            ))}
-          </ul>
-        </div>
-        <div class="footer__column">
-          <h3 class="footer__heading">{t.footer.products}</h3>
-          <ul class="footer__links">
-            {productLinks.map((link) => (
-              <li><a href={link.href} class="footer__link">{link.label}</a></li>
-            ))}
-          </ul>
-        </div>
-        <div class="footer__column">
-          <h3 class="footer__heading">{t.footer.references}</h3>
-          <ul class="footer__links">
-            {refLinks.map((link) => (
-              <li><a href={link.href} class="footer__link">{link.label}</a></li>
-            ))}
-          </ul>
-        </div>
-        <div class="footer__column">
-          <h3 class="footer__heading">{t.footer.support}</h3>
-          <ul class="footer__links">
-            {supportLinks.map((link) => (
-              <li><a href={link.href} class="footer__link">{link.label}</a></li>
-            ))}
-          </ul>
-        </div>
+    <div class="footer__grid">
+      <div class="footer__column">
+        <h3 class="footer__heading">{t.footer.about}</h3>
+        <ul class="footer__links">
+          {aboutLinks.map((link) => (
+            <li><a href={link.href} class="footer__link">{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div class="footer__column">
+        <h3 class="footer__heading">{t.footer.products}</h3>
+        <ul class="footer__links">
+          {productLinks.map((link) => (
+            <li><a href={link.href} class="footer__link">{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div class="footer__column">
+        <h3 class="footer__heading">{t.footer.references}</h3>
+        <ul class="footer__links">
+          {refLinks.map((link) => (
+            <li><a href={link.href} class="footer__link">{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div class="footer__column">
+        <h3 class="footer__heading">{t.footer.support}</h3>
+        <ul class="footer__links">
+          {supportLinks.map((link) => (
+            <li><a href={link.href} class="footer__link">{link.label}</a></li>
+          ))}
+        </ul>
       </div>
     </div>
   </div>
 
-  <!-- BEREICH 3: Footer-Bottom-Leiste -->
   <div class="footer__bottom">
-    <div class="footer__bottom-inner">
-      <div class="footer__bottom-left">
-        <span class="footer__lang">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" width="20" height="12" class="footer__flag">
-            <rect width="5" height="1" y="0" fill="#000"/>
-            <rect width="5" height="1" y="1" fill="#D00"/>
-            <rect width="5" height="1" y="2" fill="#FFCE00"/>
-          </svg>
-          DE
-        </span>
-      </div>
-      <p class="footer__copyright">Copyright 2026 EDDAIR</p>
-      <div class="footer__legal">
-        <a href={getLocalizedPath('/impressum', lang)} class="footer__legal-link">{t.footer.imprint}</a>
-        <a href={getLocalizedPath('/datenschutz', lang)} class="footer__legal-link">{t.footer.privacy}</a>
-      </div>
-      <div class="footer__bottom-right">
-        <a href="https://instagram.com/eddair" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="footer__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-          </svg>
-        </a>
-        <a href="https://linkedin.com/company/eddair" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="footer__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-            <rect x="2" y="9" width="4" height="12"/>
-            <circle cx="4" cy="4" r="2"/>
-          </svg>
-        </a>
-      </div>
+    <p class="footer__copyright">Copyright 2026 EDDAIR</p>
+    <div class="footer__legal">
+      <a href={getLocalizedPath('/impressum', lang)} class="footer__legal-link">{t.footer.imprint}</a>
+      <span class="footer__sep">|</span>
+      <a href={getLocalizedPath('/datenschutz', lang)} class="footer__legal-link">{t.footer.privacy}</a>
+    </div>
+    <div class="footer__social">
+      <a href="https://linkedin.com/company/eddair" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="footer__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect x="2" y="9" width="4" height="12"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
+      </a>
     </div>
   </div>
 </footer>
@@ -121,20 +90,16 @@ const supportLinks = [
 <style>
   .footer {
     font-family: "DM Sans", sans-serif;
-    background-color: #f0f0f0 !important;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
   }
 
-  /* BEREICH 1: Kontakt-Leiste */
   .footer__contact-bar {
-    background: #ffffff !important;
-    padding: 20px 0;
+    background: #ffffff;
     border-bottom: 1px solid #e0e0e0;
-  }
-
-  .footer__contact-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 24px;
+    padding: 16px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -142,44 +107,37 @@ const supportLinks = [
 
   .footer__contact-link {
     font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     color: #0a0a0a;
     text-decoration: none;
-    transition: opacity 0.2s;
   }
 
   .footer__contact-link:hover {
     opacity: 0.7;
   }
 
-  .footer__chat-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  /* BEREICH 2: Haupt-Footer */
   .footer__main {
-    background: #f0f0f0 !important;
-    padding: 80px 0 60px 0;
-  }
-
-  .footer__main-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 24px;
+    background: #f0f0f0;
+    padding: 60px 40px;
   }
 
   .footer__grid {
+    max-width: 1400px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
   }
 
   .footer__heading {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     color: #0a0a0a;
-    margin: 0 0 24px 0;
+    margin: 0 0 20px 0;
   }
 
   .footer__links {
@@ -189,51 +147,27 @@ const supportLinks = [
   }
 
   .footer__links li {
-    margin: 0;
+    margin: 0 0 8px 0;
   }
 
   .footer__link {
     font-size: 14px;
-    color: #0a0a0a;
-    line-height: 2.2;
+    color: #696969;
     text-decoration: none;
-    display: block;
-    transition: opacity 0.2s;
   }
 
   .footer__link:hover {
-    opacity: 0.7;
+    color: #0a0a0a;
   }
 
-  /* BEREICH 3: Footer-Bottom */
   .footer__bottom {
-    background: #0a0a0a !important;
-    padding: 20px 0;
-  }
-
-  .footer__bottom-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 24px;
+    background: #0a0a0a;
+    padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .footer__bottom-left {
-    color: #fff;
-    font-size: 14px;
-  }
-
-  .footer__lang {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #fff;
-  }
-
-  .footer__flag {
-    flex-shrink: 0;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
   .footer__copyright {
@@ -245,59 +179,39 @@ const supportLinks = [
   .footer__legal {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 8px;
+  }
+
+  .footer__sep {
+    color: #888888;
+    font-size: 12px;
   }
 
   .footer__legal-link {
     font-size: 12px;
     color: #888888;
     text-decoration: none;
-    transition: opacity 0.2s;
   }
 
   .footer__legal-link:hover {
-    opacity: 0.7;
-  }
-
-  .footer__bottom-right {
-    display: flex;
-    gap: 16px;
+    color: #ffffff;
   }
 
   .footer__icon {
-    color: #fff;
-    transition: opacity 0.2s;
+    color: #ffffff;
   }
 
   .footer__icon:hover {
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
-  /* Responsive Mobile */
   @media (max-width: 768px) {
-    .footer__contact-inner {
-      flex-direction: column;
-      gap: 12px;
-      text-align: center;
-    }
-
     .footer__grid {
       grid-template-columns: repeat(2, 1fr);
     }
-
-    .footer__main {
-      padding: 60px 0 40px 0;
-    }
-
-    .footer__bottom-inner {
+    .footer__bottom {
       flex-direction: column;
-      gap: 16px;
       text-align: center;
-    }
-
-    .footer__legal {
-      flex-wrap: wrap;
-      justify-content: center;
     }
   }
 </style>

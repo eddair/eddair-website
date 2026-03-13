@@ -4,33 +4,95 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="relative h-screen w-full overflow-hidden">
-  <div
-    class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#222222] to-[#0a0a0a]"
-    aria-hidden="true"
-  />
-
-  <div class="relative z-10 h-full flex flex-col justify-end container-eddair pb-20">
-    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
-      <div class="text-white">
-        <p class="text-sm uppercase tracking-[4px] mb-2 opacity-90">{t.hero.subtitle}</p>
-        <h1 class="text-4xl md:text-5xl lg:text-[44px] font-bold mb-4 tracking-tight">
-          {t.hero.title1}<br />{t.hero.title2}
-        </h1>
-      </div>
-      <a
-        href={getLocalizedPath('/products', lang)}
-        class="inline-flex items-center justify-center w-fit px-8 py-4 bg-[var(--btn-bg)] text-[var(--btn-text)] text-sm uppercase tracking-[2px] hover:bg-[#333] transition-colors"
-        style="border-radius: var(--btn-border-radius);"
-      >
-        {t.hero.cta}
-      </a>
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true" />
+  <div class="hero__content">
+    <div class="hero__text">
+      <h1 class="hero__h1">
+        <span class="hero__h1-normal">{t.hero.title1}</span>
+        <span class="hero__h1-bold">{t.hero.title2}</span>
+      </h1>
     </div>
-  </div>
-
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce-slow">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M12 5v14M19 12l-7 7-7-7"/>
-    </svg>
+    <a href={getLocalizedPath('/products', lang)} class="hero__cta">{t.hero.cta}</a>
   </div>
 </section>
+
+<style>
+  .hero {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background-color: #0a0a0a;
+    background-image: url('/images/newsletter-bg.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 40px 80px 40px;
+  }
+
+  .hero__text {
+    margin-bottom: 24px;
+  }
+
+  .hero__h1 {
+    font-family: "DM Sans", sans-serif;
+    font-size: 44px;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .hero__h1-normal {
+    font-weight: 400;
+    display: block;
+  }
+
+  .hero__h1-bold {
+    font-weight: 700;
+    display: block;
+  }
+
+  .hero__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    background: #0a0a0a;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    border-radius: 0;
+    width: fit-content;
+  }
+
+  .hero__cta:hover {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .hero__h1 {
+      font-size: 32px;
+    }
+  }
+</style>

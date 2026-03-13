@@ -4,32 +4,98 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="py-20 md:py-32 bg-white">
-  <div class="container-eddair">
-    <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-      <div>
-        <h2 class="text-3xl md:text-4xl font-semibold text-[var(--text-primary)] mb-6">
-          {t.sustainability.title}
-        </h2>
-        <p class="text-base text-[var(--text-gray)] leading-relaxed mb-6">
-          {t.sustainability.text1}
-        </p>
-        <p class="text-base text-[var(--text-gray)] leading-relaxed mb-8">
-          {t.sustainability.text2}
-        </p>
-        <a
-          href={getLocalizedPath('/ueber-uns', lang)}
-          class="inline-flex items-center justify-center w-fit px-8 py-4 border-2 border-[var(--btn-bg)] text-[var(--text-primary)] text-sm uppercase tracking-[2px] hover:bg-[var(--btn-bg)] hover:text-[var(--btn-text)] transition-colors"
-          style="border-radius: var(--btn-border-radius);"
-        >
-          {t.sustainability.cta}
-        </a>
-      </div>
-      <div class="flex justify-center">
-        <div class="w-48 h-48 rounded-full bg-[#e0e0e0] flex items-center justify-center">
-          <span class="text-[var(--text-gray)] text-xs text-center px-4">Coming Soon</span>
-        </div>
-      </div>
+<section class="sus-section">
+  <div class="sus-box">
+    <div class="sus-content">
+      <h2 class="sus-title">{t.sustainability.title}</h2>
+      <p class="sus-text">{t.sustainability.text1}</p>
+      <p class="sus-text">{t.sustainability.text2}</p>
+      <a href={getLocalizedPath('/ueber-uns', lang)} class="sus-btn">{t.sustainability.cta}</a>
+    </div>
+    <div class="sus-badge">
+      <div class="sus-badge-inner">Coming Soon</div>
     </div>
   </div>
 </section>
+
+<style>
+  .sus-section {
+    width: 100%;
+    background: #f4f4f4;
+    padding: 30px 0;
+  }
+
+  .sus-box {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .sus-title {
+    font-size: 28px;
+    font-weight: 300;
+    color: #0a0a0a;
+    margin: 0 0 16px 0;
+  }
+
+  .sus-text {
+    font-size: 16px;
+    color: #696969;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+  }
+
+  .sus-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border: 2px solid #0a0a0a;
+    color: #0a0a0a;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    border-radius: 0;
+    width: fit-content;
+    margin-top: 8px;
+  }
+
+  .sus-btn:hover {
+    background: #0a0a0a;
+    color: #ffffff;
+  }
+
+  .sus-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sus-badge-inner {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #696969;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .sus-box {
+      grid-template-columns: 1fr;
+      padding: 30px 24px;
+    }
+  }
+</style>

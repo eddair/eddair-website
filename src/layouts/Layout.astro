@@ -30,6 +30,7 @@ const jsonLd = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google" content="notranslate" />
     <title>{title} | EDDAIR</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
@@ -56,7 +57,7 @@ const jsonLd = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
   </head>
-  <body class="bg-[var(--bg-body)] text-[var(--text-primary)] font-sans antialiased">
+  <body class="bg-[var(--bg-body)] text-[var(--text-primary)] font-sans antialiased" style="background-color: #f4f4f4 !important;">
     <slot />
     <script>
       document.addEventListener('DOMContentLoaded', () => {

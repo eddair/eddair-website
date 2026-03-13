@@ -9,6 +9,11 @@
   --color-dark: #222222;
 }
 
+/* Force light page background — prevents any dark override from html/body */
+html, body {
+  background-color: #f4f4f4 !important;
+}
+
 :root {
   --bg-body: #f4f4f4;
   --bg-white: #ffffff;
