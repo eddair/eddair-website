@@ -47,6 +47,8 @@ body {
   line-height: 1.5;
   color: #000000;
   background: #EBEBEB;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -74,11 +76,48 @@ h3 {
   letter-spacing: 0.12em;
 }
 
-/* Abstände zwischen Sektionen */
+/* Abstände zwischen Sektionen — 20px grauer Streifen */
 .section-gap {
-  padding: 20px 0;
-  background: #EBEBEB;
+  margin-bottom: 20px;
+  padding: 0;
+  background: transparent;
   width: 100%;
+}
+
+.section-gap:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Section-System (devialet.com) */
+.section {
+  width: 100%;
+  margin: 0 0 20px 0;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 80px;
+  box-sizing: border-box;
+}
+
+.section--white { background: #FFFFFF; }
+.section--dark { background: #000000; color: #FFFFFF; }
+.section--beige { background: #C8BAA8; }
+.section--gray { background: #EBEBEB; }
+
+/* Border-Radius entfernen */
+.section,
+.section > *,
+.section__inner,
+.ps-box, .ps-card,
+.feat-box, .cta-box, .exp-box, .sus-box, .acc-box, .pi-box,
+.nl-card, .ref-card {
+  border-radius: 0 !important;
 }
 
 main {
