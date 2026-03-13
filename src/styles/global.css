@@ -76,12 +76,23 @@ h3 {
   letter-spacing: 0.12em;
 }
 
-/* Abstände zwischen Sektionen — 20px grauer Streifen */
+/* Abstände zwischen Sektionen — 28px (Ausnahmen siehe Modifier) */
 .section-gap {
-  margin-bottom: 20px;
+  margin-bottom: 28px;
+  margin-top: 0;
   padding: 0;
   background: transparent;
   width: 100%;
+}
+
+/* Mission → ProductImage: 6px */
+.section-gap--mission-product {
+  margin-top: 6px;
+}
+
+/* CTA → Features: 0px */
+.section-gap--cta {
+  margin-bottom: 0;
 }
 
 .section-gap:last-of-type {
@@ -178,6 +189,7 @@ footer.footer {
 }
 footer .footer__contact-bar {
   background-color: #ffffff !important;
+  margin-top: 18px;
 }
 footer .footer__main {
   background-color: #F0F0F0 !important;
